@@ -17,3 +17,9 @@ def getTesting(request):
     teachers = Teacher.objects.all()
     serializer = TeacherSerializer(teachers, many=True)
     return Response(serializer.data)
+
+@api_view(['POST'])
+def postTeacherSingular(request, email, password):
+    teacher = Teacher.objects.get(email=email, password=password)
+    serializer = TeacherSerializer(teacher, many=False)
+    return Response(serializer.data['name'])

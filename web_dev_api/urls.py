@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.basePoint, name="basePoint"),
     path('testing/', views.getTesting, name="getTesting"),
+    path('testing-post/<email>/<password>', views.postTeacherSingular, name="postTeacher"),
 ]
 
 # create url paths to make requests
